@@ -1,0 +1,116 @@
+span {
+    display: inline-block;
+    width: 56px;
+    height: 48px;
+    border: solid 1px rgba(126, 126, 126, 0.59);
+    margin: 4px;
+    text-align: center;
+    line-height: 46px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 130%;
+    color: darkslategray;
+    vertical-align: top;
+    border-radius: 5px;
+    transition: all ease 1s;
+}
+
+dir#keyboard {
+    width: 960px;
+    margin: 90px auto;
+    padding: 0;
+    position: relative;
+}
+
+div#background {
+    position: absolute;
+    top: 0px;
+    opacity: 0.7;
+    width: 960px;
+    z-index: -1;
+}
+
+.active {
+    background-color: hsla(39, 100%, 52%, 0.75);
+    color: white;
+}
+
+.option, .shift {
+}
+
+#background > div {
+    height: 56px;
+}
+
+#background > div:nth-child(1) > span {
+    float: right;
+    width: 120px;
+}
+
+#keyboard > div:nth-child(2) > span:nth-child(13) {
+    width: 97px;
+}
+
+#keyboard > div:nth-child(2) {
+    padding-left: 87px;
+}
+
+#background > div:nth-child(2) > span {
+    width: 79px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#background > div > span {
+    font-size: 86%;
+}
+
+#background > div:nth-child(3) > span:nth-child(1) {
+    width: 94px;
+    word-break: break-word;
+    padding-right: 38px;
+    line-height: 16px;
+    padding-top: 7px;
+}
+
+#keyboard > div:nth-child(3) {
+    padding-left: 102px;
+}
+
+#background > div:nth-child(3) > span:nth-child(2) {
+    float: right;
+    width: 146px;
+}
+
+#background > div:nth-child(4) > span:nth-child(1) {
+    width: 110px;
+}
+
+#keyboard > div:nth-child(4) {
+    padding-left: 118px;
+}
+
+#background > div:nth-child(4) > span:nth-child(2) {
+    float: right;
+    width: 193px;
+}
+
+#background > div:nth-child(5) > span {
+    font-size: 70%;
+}
+
+#background > div:nth-child(5) > span:nth-child(4) {
+    width: 80px;
+}
+
+#background > div:nth-child(5) > span:nth-child(6) {
+    width: 80px;
+}
+
+#background > div:nth-child(5) > span:nth-child(5) {
+    width: 392px;
+}

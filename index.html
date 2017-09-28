@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>Special Charaters by Mac keyboard</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="keyboard.css">
+    <script type="text/javascript" src="vue.min.js"></script>
+</head>
+
+<body>
+    <dir id="keyboard">
+        <div v-for="line in chars">
+            <span class="char" v-for="c in line">{{c}}</span>
+        </div>
+        <div id="background">
+            <div><span>Backspace</span></div>
+            <div><span>Tab</span></div>
+            <div><span>Caps Lock</span><span>Enter</span></div>
+            <div><span v-bind:class="{active: shiftKey}" class="shift">Shift</span><span v-bind:class="{active: shiftKey}" class="shift">Shift</span></div>
+            <div><span>Fn</span><span>Control</span><span v-bind:class="{active: optionKey}" class="option">Option</span><span>Command</span><span> </span><span>Command</span><span v-bind:class="{active: optionKey}" class="option">Option</span><span>Control</span><span>Fn</span></div>
+        </div>
+    </dir>
+    <script type="text/javascript" src="keyboard.js"></script>
+</body>
+
+</html>
