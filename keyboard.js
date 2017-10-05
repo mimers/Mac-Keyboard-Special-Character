@@ -16,14 +16,14 @@ option = ["`¡™£¢∞§¶•ªº–≠".split(''),
     "Ω≈ç√∫˜µ≤≥÷".split('')
 ]
 shiftOption = ["`⁄€‹›ﬁﬂ‡°·‚—±".split(''),
-    "Œ„´‰ˇÁ¨ˆØ∏”’".split(''),
+    "Œ„´‰ˇÁ¨ˆØ∏”’»".split(''),
     "ÅÍÎÏ˝ÓÔÒÚÆ".split(''),
     "¸˛Ç◊ı˜Â¯˘¿".split('')
 ]
 
 STATE_NORMAL = 0
 STATE_SHIFT = 0x1
-STATE_OPTION = 0x10
+STATE_OPTION = 0x2
 STATE_SHIFT_OPTION = STATE_OPTION | STATE_SHIFT
 
 state_chars_map = []
@@ -42,14 +42,25 @@ var vue = new Vue({
     }
 });
 
-document.addEventListener('keyup', function(e) {
-    console.log(e);
-    if (e.key == 'Alt') {
-        vue.keyState ^= STATE_OPTION;
-    } else if (e.key == 'Shift') {
-        vue.keyState ^= STATE_SHIFT;
-    }
+function update() {
     vue.chars = state_chars_map[vue.keyState];
     vue.shiftKey = vue.keyState & STATE_SHIFT
     vue.optionKey = vue.keyState & STATE_OPTION
+}
+
+document.addEventListener('keyup', function(e) {
+    console.log(e);
+    if (e.key == 'Alt') {
+        vue.keyState ^= STATE_OPTION
+        clearInterval(timer)
+    } else if (e.key == 'Shift') {
+        vue.keyState ^= STATE_SHIFT
+        clearInterval(timer)
+    }
+    update()
 })
+
+timer = setInterval(function () {
+    vue.keyState = (vue.keyState + 1) % 0x4;
+    update()
+}, 5000)
